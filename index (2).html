@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mr Wash Car Wash | Shine In Minutes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --orange: #FE5000;
+      --navy: #0E2A47;
+      --yellow: #FFE22C;
+      --light: #F5F7FA;
+      --white: #fff;
+      --radius: 12px;
+      --container: 1200px;
+    }
+    html,body {margin:0;padding:0;background:var(--white);}
+    body {font-family:Inter,sans-serif;color:var(--navy);}
+    .container {max-width:var(--container);margin:0 auto;padding:0 20px;}
+    header {
+      background: var(--white); border-bottom: 1px solid #ececec;
+      position: sticky; top: 0; z-index: 10;
+    }
+    .nav {display:flex;align-items:center;justify-content:space-between;height:76px;}
+    .logo-wrap {display:flex;align-items:center;gap:15px;}
+    .logo {height:48px;}
+    .brand {font-family: Poppins,sans-serif;font-weight:700;font-size:21px;}
+    nav ul {display:flex;gap:24px;list-style:none;margin:0;padding:0;}
+    nav a {color:var(--navy);text-decoration:none;font-weight:500;}
+    .cta a {display:inline-block;padding:12px 26px;border-radius:var(--radius);font-weight:700;text-decoration:none;font-family:Poppins,sans-serif;font-size:17px;letter-spacing:1px;border:none;transition:all .2s;}
+    .cta .primary {background:var(--orange);color:var(--white);}
+    .cta .primary:hover {background:#D64700;}
+    .hero {
+      position:relative;background:#0E2A47;color:var(--white);overflow:hidden;
+      min-height:380px;
+    }
+    .hero-bg {
+      position:absolute;inset:0;
+      background:linear-gradient(105deg,rgba(14,42,71,0.88) 55%,rgba(254,80,0,0.24) 100%),url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1200&auto=format&fit=crop')center/cover no-repeat;
+      z-index:0;opacity:.88;
+    }
+    .hero-content {position:relative;z-index:1;padding:110px 0 60px;}
+    .hero h1 {font-size:48px;font-family:Poppins,sans-serif;font-weight:700;margin:0 0 16px;}
+    .hero p {font-size:21px;max-width:540px;margin:0 0 32px;}
+    .hero-buttons {display:flex;gap:18px;flex-wrap:wrap;}
+    .btn {border-radius: var(--radius);font-family: Poppins,sans-serif; padding: 14px 30px; font-weight:700;font-size:17px;text-decoration:none;display:inline-block;}
+    .btn-primary {background:var(--orange);color:var(--white);border:none;}
+    .btn-primary:hover {background:#D64700;}
+    .btn-secondary {border:2px solid var(--orange);background:var(--white);color:var(--orange);}
+    .btn-secondary:hover {background:var(--orange);color:var(--white);}
+    .block {padding:66px 0;}
+    .block h2 {font-family:Poppins,sans-serif;font-weight:700;font-size:34px;color:var(--navy);margin:0 0 18px;}
+    .lead {color:#333;margin:0 0 24px;font-size:21px;}
+    .story {background:var(--white);}
+    .block-cards {display:flex;flex-wrap:wrap;gap:30px;}
+    .card {background:var(--white);border-radius:var(--radius);padding:30px 26px;box-shadow:0 4px 16px rgba(0,0,0,0.08);min-width:220px;max-width:346px;}
+    .card h3 {margin:0 0 10px;font-size:23px;}
+    .card ul {margin:0 0 14px;padding-left:18px;}
+    .card .price {font-size:29px;font-weight:700;color:var(--orange);margin:12px 0;}
+    .card.popular {border:2px solid var(--orange);position:relative;}
+    .card.popular::after{content:"Most Popular";position:absolute;top:-17px;right:16px;background:var(--orange);color:var(--white);font-weight:700;padding:4px 13px;border-radius:999px;font-size:14px;letter-spacing:0.5px;}
+    .locator .location-list {margin-top:28px;}
+    .locator-box {background:var(--light);border-radius:var(--radius);padding:22px 20px;text-align:center;color:#666;margin-bottom:10px;}
+    .features {background:var(--light);}
+    .features-grid {display:grid;grid-template-columns:repeat(4,1fr);gap:22px;text-align:center;}
+    .features-icon {font-size:42px;}
+    .features-title {font-weight:700;color:var(--orange);margin:10px 0 2px;}
+    .reviews {background:var(--white);}
+    .reviews-grid {display:flex;gap:22px;flex-wrap:wrap;margin-top:30px;}
+    .review-card {background:var(--light);border-radius:var(--radius);padding:28px;min-width:170px;flex:1;}
+    .review-stars {color:var(--yellow);font-size:22px;font-weight:600;}
+    .review-author {color:var(--orange);font-size:16px;margin-top:12px;}
+    footer {background:var(--navy);padding:48px 0 12px;}
+    .footer-block {display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;}
+    .footer-brand {display:flex;align-items:center;gap:14px;}
+    .footer-brand img {height:36px;border-radius:7px;}
+    .footer-links a {color:#fff;text-decoration:none;margin-right:16px;font-size:16px;}
+    .footer-links a:hover {color:var(--yellow);}
+    .footer-hours {color:var(--yellow);font-size:15px;margin-top:8px;}
+    .footer-copy {color:#fff;font-size:14px;font-weight:400;margin-top:14px;flex:100%;}
+    @media(max-width:900px){.features-grid{grid-template-columns:1fr 1fr;}.block-cards,.reviews-grid{flex-direction:column;}.nav ul{flex-wrap:wrap;}}
+    @media(max-width:600px){
+      .hero-content{padding:62px 0 30px;}
+      .hero h1{font-size:33px;}
+      .block h2{font-size:24px;}
+      .block-cards .card,
+      .reviews-grid .review-card{max-width:100%;}
+      .features-grid{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <div class="logo-wrap">
+      <img class="logo" src="https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/images/59884018/f4adf62c-bbc6-4c8b-a1b4-74dd5c77eaa4/MrWashSig1A.jpg" alt="Mr Wash Car Wash logo">
+      <span class="brand">Mr Wash</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#unlimited">Unlimited Club</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#locations">Locations</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#deals">Deals</a></li>
+      </ul>
+    </nav>
+    <div class="cta">
+      <a class="primary" href="#unlimited">Join Unlimited</a>
+    </div>
+  </div>
+</header>
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container hero-content">
+    <h1>For the love of the road.<br>For the love of your shine.</h1>
+    <p>Fast, eco‑friendly car washes with free vacuums at 35+ locations.<br>Drive in dull, drive out dazzling.</p>
+    <div class="hero-buttons">
+      <a href="#unlimited" class="btn btn-primary">Join Unlimited</a>
+      <a href="#locations" class="btn btn-secondary">Find a Location</a>
+    </div>
+  </div>
+</section>
+<section class="block story" id="about">
+  <div class="container">
+    <h2>For busy families. For adventurers. For car lovers.</h2>
+    <p class="lead">Every trip deserves a fresh start. Whether you're commuting or conquering a cross-country road trip, nothing powers up a journey like a spotless, shining car. For 60+ years, our family’s passion and planet-friendly soaps have kept your ride looking brand new. This is car care—made effortless and exceptional.</p>
+  </div>
+</section>
+<section class="block" id="unlimited">
+  <div class="container">
+    <h2>Our Wash Packages</h2>
+    <p class="lead">Pick your shine. Wash as often as you like.</p>
+    <div class="block-cards">
+      <div class="card">
+        <h3>Lite</h3>
+        <div class="price">$19/mo</div>
+        <ul>
+          <li>Exterior wash</li>
+          <li>Spot-free rinse</li>
+          <li>Free vacuums</li>
+        </ul>
+        <a href="#" class="btn btn-secondary">Join Lite</a>
+      </div>
+      <div class="card popular">
+        <h3>Plus</h3>
+        <div class="price">$29/mo</div>
+        <ul>
+          <li>Triple foam</li>
+          <li>Wheel clean</li>
+          <li>Touchless dry</li>
+          <li>Free vacuums</li>
+        </ul>
+        <a href="#" class="btn btn-primary">Join Plus</a>
+      </div>
+      <div class="card">
+        <h3>Pro Ceramic</h3>
+        <div class="price">$39/mo</div>
+        <ul>
+          <li>Ceramic sealant</li>
+          <li>Tire shine</li>
+          <li>Undercarriage rinse</li>
+          <li>Free vacuums</li>
+        </ul>
+        <a href="#" class="btn btn-secondary">Join Pro</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="block locator" id="locations">
+  <div class="container">
+    <h2>Find a Location</h2>
+    <p class="lead">Search by city or zip—we’ll show the closest Mr Wash near you.</p>
+    <form style="display:flex;gap:16px;max-width:500px;margin-bottom:32px;">
+      <input type="text" placeholder="Enter city or ZIP" style="flex:1;padding:11px 16px;border:1px solid #C8C8C8;border-radius:8px;font-size:17px;">
+      <button type="submit" class="btn btn-primary" style="padding:11px 32px;">Search</button>
+    </form>
+    <div class="location-list">
+      <div class="locator-box">Tysons • Arlington • Alexandria • Kensington • Silver Spring • More</div>
+    </div>
+  </div>
+</section>
+<section class="block features">
+  <div class="container">
+    <div class="features-grid">
+      <div>
+        <div class="features-icon">🌿</div>
+        <div class="features-title">Eco-Friendly Soaps</div>
+      </div>
+      <div>
+        <div class="features-icon">🧹</div>
+        <div class="features-title">Free Vacuums</div>
+      </div>
+      <div>
+        <div class="features-icon">⚡</div>
+        <div class="features-title">Fast In & Out</div>
+      </div>
+      <div>
+        <div class="features-icon">🌀</div>
+        <div class="features-title">Touchless Dry</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="block reviews" id="reviews">
+  <div class="container">
+    <h2>What Customers Say</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>So fast and spotless. Free vacuums are a bonus!</p>
+        <div class="review-author">— Jordan P.</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>In and out in minutes. Staff is friendly.</p>
+        <div class="review-author">— Alicia R.</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★☆</div>
+        <p>Great value with the Unlimited plan.</p>
+        <div class="review-author">— Mike S.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="container footer-block">
+    <div class="footer-brand">
+      <img src="https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/images/59884018/f4adf62c-bbc6-4c8b-a1b4-74dd5c77eaa4/MrWashSig1A.jpg" alt="Mr Wash Car Wash logo">
+      <span>Mr Wash Car Wash</span>
+    </div>
+    <div class="footer-links">
+      <a href="#">Support</a>
+      <a href="#">FAQ</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <div class="footer-hours">Mon–Sat 8am–8pm • Sun 9am–6pm</div>
+    </div>
+    <div class="footer-copy">&copy; 2025 Mr Wash Car Wash</div>
+  </div>
+</footer>
+</body>
+</html>
